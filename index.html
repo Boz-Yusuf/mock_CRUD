@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/input.css" />
+    <title>Vite App</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- component -->
+      <div class="p-8 min-h-screen bg-slate-500"  >
+      <form class="bg-white p-4 rounded-lg shadow-xl py-8 mt-12">
+        <h1
+          class="text-4xl font-bold text-gray-800 tracking-widest uppercase text-center"
+        >
+          User Info
+        </h1>
+        
+        <h2 class="text-center text-gray-600 text-lg mt-2">
+          CRUD Operations 
+        </h2>
+        <div class="space-y-12 px-2 xl:px-16 mt-12">
+          <div class=" bg-slate-600 mt-4 flex justify-between  items-stretch gap-1">  
+            <table class="min-w-full">
+              <thead class="border-b">
+                <tr>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    #
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    Full Name
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    Phone Number
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    City
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    Country
+                  </th>
+                  <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
+                    <input
+                    value="EKLE"
+                    type="button"
+                    class="top-0 left-0 px-4 w-full py-2  bg-slate-500 text-white  font-medium text-medium leading-tight uppercase shadow-md hover:bg-gray-800 hover:shadow-lg "
+                  />
+                  </th>
+                </tr>
+              </thead>
+              <tbody id="tableParent" class="bg-slate-100 " >
+                <tr class="border-b">
+                  <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">1</td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Mark
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    542 365 78 52
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Berlin
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    Germany
+                  </td>
+                  <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                    <div class="flex justify-center gap-5">
+                      <input class="bg-slate-600 text-white px-4 w-full  py-2" type="button" value="DELETE">
+                      <input class="bg-slate-600 text-white px-4 w-full py-2" type="button" value="UPDATE" onclick="getList()">
+                    </div>
+
+                  </td>
+                </tr>
+              
+              </tbody>
+            </table>
+          </div>
+
+          
+
+        
+       
+      </form>
+    </div>
+   
+    <!-- </div> -->
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
