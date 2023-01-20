@@ -43,7 +43,7 @@
                   </th>
                   <th scope="col" class="text-sm font-medium text-gray-900 px-6 py-4 text-left">
                     <input
-                    value="EKLE"
+                    value="ADD"
                     type="button"
                     onclick="openModal()"
                     class="top-0 left-0 px-4 w-full py-2  bg-slate-500 text-white  font-medium text-medium leading-tight uppercase shadow-md hover:bg-gray-800 hover:shadow-lg "
@@ -117,11 +117,20 @@
             </button>
             <button
               type="button"
+              id="modalAddButton"
               onclick="addUser()"
-              class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight  shadow-md hover:bg-blue-700 hover:shadow-lg  ml-1"
+              class="px-6 py-2.5 bg-blue-600 text-white hidden font-medium text-xs leading-tight  shadow-md hover:bg-blue-700 hover:shadow-lg  ml-1"
             >
               ADD
             </button>
+            <button
+            type="button"
+            id="modalUpdateButton"
+            onclick="updateUserInfo()"
+            class="px-6 py-2.5 bg-blue-600 text-white hidden font-medium text-xs leading-tight  shadow-md hover:bg-blue-700 hover:shadow-lg  ml-1"
+          >
+            UPDATE
+          </button>
           </div>
         </div>
       </div>
