@@ -3,7 +3,7 @@ const addModal = document.getElementById("addModal");
 let newUser;
 let userList;
 getList();
-addUser();
+
 // deleteUser();
 
 function writeUser(id, fullName, phoneNumber, city, country) {
@@ -67,19 +67,18 @@ function discardUser() {
 }
 
 function addUser() {
-  // let inputUsername = document.getElementById("inputUsername");
-  // let inputPhoneNumber = document.getElementById("inputPhoneNumber");
-  // let inputCity = document.getElementById("inputCity");
-  // let inputCountry = document.getElementById("inputCountry");
+  let inputUsername = document.getElementById("inputUsername").value;
+  let inputPhoneNumber = document.getElementById("inputPhoneNumber").value;
+  let inputCity = document.getElementById("inputCity").value;
+  let inputCountry = document.getElementById("inputCountry").value;
 
   fetch("https://63c7cbdce52516043f44ab03.mockapi.io/users", {
     method: "POST",
     body: JSON.stringify({
-      name: "Yusuf Boz",
-      phoneNumber: "1-816-289-6962",
-      city: "Fort Otto",
-      country: "Venezuela",
-      id: "18",
+      name: inputUsername,
+      phoneNumber: inputPhoneNumber,
+      city: inputCity,
+      country: inputCountry,
     }),
     headers: {
       "Content-type": "application/json; charset=UTF-8",
@@ -87,22 +86,6 @@ function addUser() {
   })
     .then((response) => response.json())
     .then((json) => console.log(json));
-
-  // fetch("https://63c7cbdce52516043f44ab03.mockapi.io/users/:18", {
-  //   method: "POST",
-  //   body: JSON.stringify({
-  //     name: "Yusuf Boz",
-  //     phoneNumber: "1-816-289-6962",
-  //     city: "Fort Otto",
-  //     country: "Venezuela",
-  //     id: "18",
-  //   }),
-  //   headers: {
-  //     "Content-type": "application/json; charset=UTF-8",
-  //   },
-  // })
-  //   .then((response) => response.json())
-  //   .then((json) => console.log(json));
 }
 
 document.deleteUser = deleteUser;
