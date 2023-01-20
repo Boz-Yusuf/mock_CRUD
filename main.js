@@ -6,7 +6,7 @@ let inputUsername = document.getElementById("inputUsername");
 let inputPhoneNumber = document.getElementById("inputPhoneNumber");
 let inputCity = document.getElementById("inputCity");
 let inputCountry = document.getElementById("inputCountry");
-
+var userID = 0;
 let newUser;
 let userList;
 getList();
@@ -63,6 +63,7 @@ async function deleteUser(id) {
 }
 
 function updateUser(id, obj) {
+  userID = id;
   modalAddButton.classList =
     "px-6 py-2.5 bg-blue-600 text-white font-medium text-xs hidden leading-tight  shadow-md hover:bg-blue-700 hover:shadow-lg  ml-1";
 
@@ -112,8 +113,9 @@ async function addUser() {
 }
 
 async function updateUserInfo() {
+  console.log(userID);
   const response = await fetch(
-    `https://63c7cbdce52516043f44ab03.mockapi.io/users/4`,
+    `https://63c7cbdce52516043f44ab03.mockapi.io/users/${userID}`,
     {
       method: "PUT",
       body: JSON.stringify({
