@@ -1,7 +1,9 @@
 const tableParent = document.getElementById("tableParent");
+const addModal = document.getElementById("addModal");
 let newUser;
 let userList;
 getList();
+addUser();
 // deleteUser();
 
 function writeUser(id, fullName, phoneNumber, city, country) {
@@ -25,11 +27,10 @@ function writeUser(id, fullName, phoneNumber, city, country) {
   <input class="bg-slate-600 text-white font-medium px-4 w-full py-2  hover:shadow-lg hover:bg-gray-800" type="button" value="UPDATE" onClick="updateUser(${id})">
   <input class="bg-slate-600 text-white font-medium px-4 w-full  py-2  hover:shadow-lg hover:bg-gray-800" type="button" value="DELETE" onClick="deleteUser(${id})">
   
-
   </div>
 
 </td>`;
-  // px-6 py-2.5 bg-gray-800 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-gray-600 hover:shadow-lg
+
   tableParent.append(newUser);
 }
 
@@ -57,6 +58,55 @@ async function deleteUser(id) {
 function updateUser() {
   console.log("deneme");
 }
+function openModal() {
+  addModal.classList = "top-0 left-0 fixed";
+}
+
+function discardUser() {
+  addModal.classList = "top-0 left-0 fixed hidden";
+}
+
+function addUser() {
+  // let inputUsername = document.getElementById("inputUsername");
+  // let inputPhoneNumber = document.getElementById("inputPhoneNumber");
+  // let inputCity = document.getElementById("inputCity");
+  // let inputCountry = document.getElementById("inputCountry");
+
+  fetch("https://63c7cbdce52516043f44ab03.mockapi.io/users", {
+    method: "POST",
+    body: JSON.stringify({
+      name: "Yusuf Boz",
+      phoneNumber: "1-816-289-6962",
+      city: "Fort Otto",
+      country: "Venezuela",
+      id: "18",
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => console.log(json));
+
+  // fetch("https://63c7cbdce52516043f44ab03.mockapi.io/users/:18", {
+  //   method: "POST",
+  //   body: JSON.stringify({
+  //     name: "Yusuf Boz",
+  //     phoneNumber: "1-816-289-6962",
+  //     city: "Fort Otto",
+  //     country: "Venezuela",
+  //     id: "18",
+  //   }),
+  //   headers: {
+  //     "Content-type": "application/json; charset=UTF-8",
+  //   },
+  // })
+  //   .then((response) => response.json())
+  //   .then((json) => console.log(json));
+}
 
 document.deleteUser = deleteUser;
 document.updateUser = updateUser;
+document.openModal = openModal;
+document.discardUser = discardUser;
+document.addUser = addUser;

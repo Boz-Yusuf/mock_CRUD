@@ -45,6 +45,7 @@
                     <input
                     value="EKLE"
                     type="button"
+                    onclick="openModal()"
                     class="top-0 left-0 px-4 w-full py-2  bg-slate-500 text-white  font-medium text-medium leading-tight uppercase shadow-md hover:bg-gray-800 hover:shadow-lg "
                   />
                   </th>
@@ -70,19 +71,60 @@
                       <input class="bg-slate-600 text-white px-4 w-full  py-2" type="button" value="DELETE">
                       <input class="bg-slate-600 text-white px-4 w-full py-2" type="button" value="UPDATE" onclick="getList()">
                     </div>
-
                   </td>
                 </tr>
-              
               </tbody>
             </table>
           </div>
 
-          
-
-        
-       
       </form>
+      <div id="addModal" class=" top-0 lef-0fixed hidden">
+        <div class="bg-slate-500 border-none shadow-lg relative">
+          <div class=" p-4 border-b border-gray-200">
+            <h5
+              class="text-3xl font-medium leading-normal text-center text-slate-100"
+           
+            >
+              Add New User
+            </h5>
+            <button
+              type="button"
+              class="btn-close box-content w-4 h-4 p-1 text-black border-none rounded-none opacity-50 focus:shadow-none focus:outline-none focus:opacity-100 hover:text-black hover:opacity-75 hover:no-underline"
+            ></button>
+          </div>
+          <div class="bg-slate-300 relative p-4 grid grid-cols-2 gap-y-2 w-96">
+            <label class="p-1  font-medium" for="">User Name</label>
+            <input id="inputUsername" type="text" value="" />
+
+            <label  class="p-1  font-medium" for="">Phone Number</label>
+            <input id="inputPhoneNumber"  type="text" value="" />
+     
+            <label  class="p-1  font-medium" for="">City</label>
+            <input id="inputCity" type="text" value="" />
+
+            <label  class="p-1 font-medium" for="">Country</label>
+            <input id="inputCountry" type="text" value="" />
+          </div>
+          <div
+            class="modal-footer flex  items-center justify-end p-4 border-t border-gray-200 rounded-b-md"
+          >
+            <button
+              type="button"
+              onclick="discardUser()"
+              class="px-6 py-2.5 bg-purple-600 text-white font-medium text-xs leading-tight  shadow-md hover:bg-purple-700 hover:shadow-lg "
+            >
+              DISCARD
+            </button>
+            <button
+              type="button"
+              onclick="addUser()"
+              class="px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight  shadow-md hover:bg-blue-700 hover:shadow-lg  ml-1"
+            >
+              ADD
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
    
     <!-- </div> -->
