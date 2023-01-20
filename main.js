@@ -66,26 +66,28 @@ function discardUser() {
   addModal.classList = "top-0 left-0 fixed hidden";
 }
 
-function addUser() {
+async function addUser() {
   let inputUsername = document.getElementById("inputUsername").value;
   let inputPhoneNumber = document.getElementById("inputPhoneNumber").value;
   let inputCity = document.getElementById("inputCity").value;
   let inputCountry = document.getElementById("inputCountry").value;
 
-  fetch("https://63c7cbdce52516043f44ab03.mockapi.io/users", {
-    method: "POST",
-    body: JSON.stringify({
-      name: inputUsername,
-      phoneNumber: inputPhoneNumber,
-      city: inputCity,
-      country: inputCountry,
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  })
-    .then((response) => response.json())
-    .then((json) => console.log(json));
+  const response = await fetch(
+    "https://63c7cbdce52516043f44ab03.mockapi.io/users",
+    {
+      method: "POST",
+      body: JSON.stringify({
+        name: inputUsername,
+        phoneNumber: inputPhoneNumber,
+        city: inputCity,
+        country: inputCountry,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    }
+  );
+  addModal.classList = "top-0 left-0 fixed hidden";
 }
 
 document.deleteUser = deleteUser;
